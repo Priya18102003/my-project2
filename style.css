@@ -1,0 +1,160 @@
+*{
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+nav {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding: 15px;
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    background-color:white;
+    width: 100%;
+
+    
+
+}
+.nav-link{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    
+}
+.link{
+    float: left;
+    text-align: center;
+    list-style: none;
+    margin-left: 2px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    list-style: none;
+    margin-left: 10px;
+}
+.btn{
+ background-color: blue;
+ color:white;
+ border-radius: 5px;
+ margin:10px;
+ cursor: pointer;
+ width: fit-content;
+ padding: 10px;  
+ border: none;
+ border-top: 1 px solid rgb(190, 188, 188);
+
+}
+.dot::marker{
+    color: red;
+    font-size: 20px;
+    content: "O";
+}
+.dot-blue::marker{
+    color: blue;
+    font-size: 20px;
+    content: "O";
+}
+.plus::marker{
+   content: "+";
+   font-size: 20PX;
+   color: black;
+   font-weight: bold;
+}
+
+div.overflow{
+
+    border-bottom: 1px solid rgb(252, 244, 244);
+    background-color:white;
+    position: fixed;
+    left: 5px;
+    bottom:5px;
+    top: 50px;
+    border-top: 1px solid rgb(211, 208, 208);
+    border-right: 1px solid rgb(202, 200, 200);
+}
+
+.dot-style::marker{
+    font-size: 20px;
+    color: gray;
+    content: "O";
+}
+div.main{
+    margin-left: 150px;
+    background-color:rgb(242, 242, 247);
+    padding: 15px;
+    margin-top:50px;
+}
+.dis{
+    list-style: none;
+    float: left;
+
+}
+.color{
+    background-color: aliceblue;
+}
+
+    input[type="text"] {
+      width: 400px;
+      padding: 5px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .results {
+      width: 95%;
+    }
+
+    .result-item {
+     padding: 15px;
+    }
+
+
+
+    .answer {
+      margin-left: 25px;
+      color: #444;
+      margin-top: 5px;
+      padding: 15px;
+    }
+
+    .result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .answer {
+  margin-top: 5px;
+  color: #333;
+  }
+
+  .checkbox {
+    border: 1px solid black;
+    width: 100px;
+}
+.checkbox label{
+    display: block;
+     border-bottom: 1px solid black;
+     padding: 5px;
+}
+.checkbox{position: relative;
+display: inline-block;}
+ .checkbox{
+
+position: absolute;
+box-shadow: #ccc;
+z-index: 1;
+ }
+ .checkbox:hover .view{
+    display: block;
+ }
+    
+
+
+
+    
+
