@@ -120,6 +120,7 @@ div.main{
       color: #444;
       margin-top: 5px;
       padding: 15px;
+      background-color: #ccc;
     }
 
     .result-item {
@@ -130,6 +131,7 @@ div.main{
   .answer {
   margin-top: 5px;
   color: #333;
+  background-color:ghostwhite;
   }
 
   .checkbox {
