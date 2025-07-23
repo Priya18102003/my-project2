@@ -1,58 +1,86 @@
 *{
     margin: 0 auto;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;  
+
+}
+body{
+  background-color:#f8f9fa;
 }
 nav {
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    padding: 15px;
+    border-bottom: 1px solid rgb(235, 220, 220);
+    border-top: 1px solid rgb(235, 220, 220);
+    padding: 20px;
     overflow: hidden;
     position: fixed;
     top:0;
     background-color:white;
     width: 100%;
-
+    margin-left:50px;
+    }
     
-
-}
 .nav-link{
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    text-align: center;
+    padding: 0%;
+    /* text-align: center; */
+    
+    
+
 
     
 }
+.image{
+  position: fixed;
+  top:0;
+  left:5px;
+  height: 57.5px;
+  width: 85px;
+  z-index: 1;
+  border-top:1px solid rgb(235, 220, 220);
+  border-bottom:1px solid rgb(235, 220, 220);
+  background-color:white;
+  margin-right:20px;
+}
+
+
+
 .link{
     float: left;
-    text-align: center;
+    
     list-style: none;
-    margin-left: 2px;
+  
+    
 }
 a{
     text-decoration: none;
     color: black;
-    padding: 10px;
     text-align: center;
+    padding: 10px;
     list-style: none;
-    margin-left: 10px;
+    margin-left: 5px;
+}
+.nav-link .link a{
+  /* text-align:center; */
+  
+
 }
 .btn{
  background-color: blue;
  color:white;
  border-radius: 5px;
- margin:10px;
+ margin:15px;
  cursor: pointer;
- width: fit-content;
- padding: 10px;  
+ width: 14em;
+ padding: 7px;  
  border: none;
- border-top: 1 px solid rgb(190, 188, 188);
-
+ text-align: center;
 }
 .dot::marker{
     color: red;
     font-size: 20px;
-    content: "O";
+    content:"O";
 }
 .dot-blue::marker{
     color: blue;
@@ -67,15 +95,15 @@ a{
 }
 
 div.overflow{
-
-    border-bottom: 1px solid rgb(252, 244, 244);
-    background-color:white;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(235, 220, 220);
     position: fixed;
     left: 5px;
     bottom:5px;
-    top: 50px;
-    border-top: 1px solid rgb(211, 208, 208);
-    border-right: 1px solid rgb(202, 200, 200);
+    width: 200px;
+    top: 58px;
+    bottom: 0;
+    border-right: 1px solid rgb(235, 220, 220);;
 }
 
 .dot-style::marker{
@@ -84,19 +112,24 @@ div.overflow{
     content: "O";
 }
 div.main{
-    margin-left: 150px;
-    background-color:rgb(242, 242, 247);
+    margin-left: 100px;
+    background-color:#fff;
     padding: 15px;
-    margin-top:50px;
+    margin-top:20px;
+    justify-content: flex-start;
+    float: right;
+    margin: 10px;
+    border: 1px solid rgb(235, 220, 220);;
+    border-radius: 5px;
+    width: 70em;
 }
 .dis{
     list-style: none;
     float: left;
 
 }
-.color{
-    background-color: aliceblue;
-}
+
+
 
     input[type="text"] {
       width: 400px;
@@ -106,57 +139,101 @@ div.main{
     }
 
     .results {
-      width: 95%;
+      width: 100%;
+      border-top: 1px solid rgb(235, 220, 220);;
+      padding: 10px;
     }
 
     .result-item {
      padding: 15px;
     }
 
-
+    
 
     .answer {
       margin-left: 25px;
-      color: #444;
+      color:rgba(253, 253, 253, 0.993);
       margin-top: 5px;
       padding: 15px;
-      background-color: #ccc;
+      background-color: #f8f9fa;
+      border-radius: 3px;
     }
 
     .result-item {
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgb(235, 220, 220);
+    width: 100%;
+  }
+  .question-label{
+    color: blue;
   }
 
   .answer {
   margin-top: 5px;
   color: #333;
-  background-color:ghostwhite;
+  
   }
 
   .checkbox {
-    border: 1px solid black;
-    width: 100px;
+    border: 1px solid rgb(235, 220, 220);
+    width: 150px;
+    border-radius: 3px;
 }
-.checkbox label{
-    display: block;
-     border-bottom: 1px solid black;
-     padding: 5px;
+.checkbox label {
+  display: block;
+  border-bottom: 1px solid rgb(235, 220, 220);
+  padding: 5px;
+  
 }
-.checkbox{position: relative;
-display: inline-block;}
- .checkbox{
+.background{
+  margin-bottom:60px;
 
-position: absolute;
-box-shadow: #ccc;
-z-index: 1;
+
+}
+ 
+   .result-item {
+      margin-bottom: 10px;
+    }
+    .question-label {
+      cursor: pointer;
+      color: rgb(0, 68, 255);
+      text-decoration: none;
+      display: inline-block;
+      padding: 1px;
+    }
+    .question,
+    .answer {
+      margin-left: 20px;
+      color: gray;
+      display: none;
+      user-select: none;
+      cursor: pointer;
+    }
+    .question{color: rgb(0, 68, 255);}
+    input[type="checkbox"] {
+      margin-right: 5px;
+    } 
+
+ .checkbox {
+    display:none;
  }
- .checkbox:hover .view{
-    display: block;
+ .checkbox.show{
+  display: block;
+  margin-top:5px;
+  position: absolute;
+  background-color:white;
  }
+
+
+
+
+    
     
 
 
 
-    
 
+
+
+
+    

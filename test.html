@@ -4,34 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Task</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-    .result-item { margin-bottom: 10px; }
-    .question-label { cursor: pointer; font-weight: bold; color: black; text-decoration: none; }
-    .answer { margin-left: 20px; color: black; display: none; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+ 
   <nav>
-    <ul class="link-nav">
+    <ul class="link-nav"> <div class="image"><img alt="Logo"class="image" src="educationimg.png"></div>
       <li class="link"><a href="deskboard">Dashboard</a></li>
       <li class="link"><a style="color: blue;" href="test"><i class="fa-regular fa-file-lines"></i> Test</a></li>
       <li class="link"><a href="question bank"><i class="fa-solid fa-book-open"></i> Question</a></li>
       <li class="link"><a href="classes"><i class="fa-solid fa-user-group"></i> Classes</a></li>
       <li class="link"><a href="teachers"><i class="fa-solid fa-user"></i> Teachers</a></li>
-      <li class="link" style="position: fixed; top: 16px; right: 16px;">
-        <a href=""><i class="fa-regular fa-circle-user"></i> ABC</a>
-      </li>
+      <a href="#" style="position: fixed; top: 3px; right: 16px;">
+      <button style="border: none;background-color: blue; color: white;height: 30px; border-radius: 110px;padding: 5px; width: 30px;">A</button> Admin
+      </a>
     </ul>
   </nav>
-
+ 
+      
   <div class="overflow">
-    <div style="border-bottom: 1px solid black;">
-      <input class="btn" type="button" value="ADD QUESTIONS"/>
+    <div style="border-bottom: 1px solid #ccc;">
+      <input class="btn" type="button" value="ADD QUESTIONS" />
     </div>
     <h5 style="margin: 5px 7px 5px 10px;">SNAP SHOT</h5>
-    <h5 style="margin: 5px 7px 5px 10px;">SECTION</h5>
     <ul>
       <li class="plus" style="padding: 5px;">New Section</li>
       <li class="dot" style="padding: 5px;">Section1</li>
@@ -47,64 +43,92 @@
       <li class="dot-style" style="padding: 5px;">Duration: (10)</li>
     </ul>
   </div>
-
+<div class="background">
   <div class="main">
     <ul>
-      <li class="dis" style="margin-top: 5px;">Test 1 Questions</li>
+      <li class="dis"><h6 style="margin-top: 5px;margin-bottom: 20px; font-weight: 2px;font-size: large;">Test 1 Questions</h6></li>
       <li class="dis">
-        <button id="fullViewBtn" style="border-radius: 25px; padding: 5px; margin-left: 550px;">Full view</button>
+        <button id="fullViewBtn" style="border-radius: 25px; color: blue; border: 1px solid blue; background: none; width: 80px; padding: 4px; margin-left: 400px;">Full view</button>
       </li>
-      <li class="dis">
-        <button style="border-radius: 25px; padding: 5px; margin-left: 10px;">View</button>
-      </li>
+      <li class="dis"><div class="flex">
+        <div class="view-check">
+        <button  class="view-btn" style="border-radius: 25px; padding: 4px; width: 70px; margin-left: 10px; background: none; 
+        border: 1px solid rgb(235, 220, 220);" onclick="toggleDropdown()">View</button>
+         <div class="checkbox" id="myDropdown">
+    <div style="margin-top: 15px;">
+      <label class="check-label"><input type="checkbox"> Questions</label>
+      <label class="check-label"><input type="checkbox"> Owner</label>
+      <label class="check-label"><input type="checkbox"> Type</label>
+      <label class="check-label"><input type="checkbox"> Marks</label>
+
+      <label class="check-label" ><input type="checkbox"> Actions</label>
+      <button style=" background-color: blue; color: white;margin: 10px; border: none;padding: 5px;width: 130px;border-radius: 4px;">Apply</button>
+    </div>
+  </div></div>
     </ul>
+    
 
-    <input type="text" id="searchInput" placeholder="Search" style="margin-left: 40px; padding: 3px; border-radius: 10px;" onkeyup="searchFunction()"/>
+    <input type="text" id="searchInput" placeholder="Search" style="margin-right: 290px; margin-left: 20px;padding: 3px; border-radius: 3px; border: 1px solid rgb(235, 220, 220);" onkeyup="searchFunction()" />
     <div class="results" id="resultsContainer"></div>
-
-    <div class="checkbox" style="margin-top: 15px;">
+     <!--div class="checkbox" id="myDropdown">
+    <div style="margin-top: 15px;">
       <label><input type="checkbox"> Questions</label>
       <label><input type="checkbox"> Owner</label>
       <label><input type="checkbox"> Type</label>
       <label><input type="checkbox"> Marks</label>
       <label><input type="checkbox"> Actions</label>
-      <label><button style="margin-left: 20px;background-color: blue;color: white;border: none;">Apply</button></label>
+      <button style=" background-color: blue; color: white;margin: 10px; border: none;padding: 5px;width: 130px;border-radius: 4px;">Apply</button>
     </div>
-  </div>
-
+  </div-->
   <script>
-    const qaList = [
-      { question: "What is the primary purpose of React in web development, and how does it contribute to building dynamic and interactive user interfaces?", 
+     const qaList = [
+      { link:"What is the primar...",
+        question: "What is the primary purpose of React in web development, and how does it contribute to building dynamic and interactive user interfaces?", 
       answer: "React is primarily used for building user interfaces, allowing developers to create reusable UI components and manage the state of applications efficiently." },
-      { question: "What is the result of 5+3?", 
+      {  link:"What is the result...",
+        question: "What is the result of 5+3?", 
       answer: "8" },
-      { question: "Is React a JavaScript library?", 
+      { link:"is React a JavaScr...",
+        question: "Is React a JavaScript library?", 
       answer: "Yes, React is a JavaScript library for building user interfaces." },
-      { question: "Explain the concept of JSX in React?",
+      {link:"Explain the conce...",
+        question: "Explain the concept of JSX in React?",
        answer: "JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML-like code in your JavaScript files, making it easier to describe what the UI should look like." },
-      { question: "What is the capital of France?", 
+      { link:"What is the capita...",
+        question: "What is the capital of France?", 
       answer: "Paris" },
-      { question: "Define Newton's Second Law of Motion.",
+      { link:"Define Newton's S...",
+        question: "Define Newton's Second Law of Motion.",
       answer: "Newton's Second Law states that Force = Mass * Acceleration (F = ma)." },
-      { question: "What is the square root of 144?", 
+      { link:"What is the square...",
+        question: "What is the square root of 144?", 
       answer: "12" },
-      { question: "What does HTML stand for?", 
+      { link:"What does HTML sta...",
+        question: "What does HTML stand for?", 
       answer: "Hyper Text Markup Language" },
-      { question: "Who developed the Python programming language?",
+      { link:"Who developed the...",
+        question: "Who developed the Python programming language?",
        answer: "Guido van Rossum" },
-      { question: "What is the chemical symbol for Gold?",
+      { link:"What is the chemic...",
+        question: "What is the chemical symbol for Gold?",
        answer: "Au" },
-      { question: "Solve: 15 * 6", 
+      { link:"Solve:15 * 6",
+        question: "Solve: 15 * 6", 
       answer: "90" },
-      { question: "Explain the concept of Object-Oriented Programming.",
+      {link:"Explain the conce...",
+         question: "Explain the concept of Object-Oriented Programming.",
        answer: "Object-Oriented Programming (OOP) is a programming paradigm that organizes software into objects that contain both data and methods." },
-      { question: "What is the function of RAM in a computer?", 
+      { link:"What is the functi...",
+        question: "What is the function of RAM in a computer?", 
       answer: "RAM (Random Access Memory) is used to store and access data that is actively being used by the system, making operations faster." },
-      { question: "Which planet is known as the Red Planet?", 
+      { link:"Which planet is kn...",
+        question: "Which planet is known as the Red Planet?", 
       answer: "Mars" },
-      { question: "Calculate the area of a rectangle with length 10cm and width 5cm.", 
+      { link:"Calculate the are...",
+        question: "Calculate the area of a rectangle with length 10cm and width 5cm.", 
       answer: "50cm<sup>2</sup>" },
-      { question: "What is an algorithm?", 
+      { link:"What is an algorit...",
+        question: "What is an algorithm?", 
       answer: "An algorithm is a step-by-step procedure or formula for solving a problem." }
     ];
 
@@ -119,26 +143,57 @@
         const div = document.createElement("div");
         div.classList.add("result-item");
 
-        div.innerHTML = `
-          <label style="display: block; cursor: pointer;">
-            <input type="checkbox" />
-            <a href="#" class="question-label">${item.question}</a>
-          </label>
-          <div class="answer" style=" display: ${showAllAnswers ? "block" : "none"};">${item.answer}</div>
-        `;
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
 
-        const questionLink = div.querySelector(".question-label");
-        const answerDiv = div.querySelector(".answer");
+        const link = document.createElement("a");
+        link.href = "#";
+        link.className = "question-label";
+        link.textContent = item.link;
 
-        questionLink.addEventListener("click", (e) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "question";
+        questionDiv.textContent = item.question;
+
+        const answerDiv = document.createElement("div");
+        answerDiv.className = "answer";
+        answerDiv.innerHTML = item.answer;
+
+        const label = document.createElement("label");
+        label.style.display = "block";
+        label.style.cursor = "pointer";
+        label.appendChild(checkbox);
+        label.appendChild(link);
+
+        div.appendChild(label);
+        div.appendChild(questionDiv);
+        div.appendChild(answerDiv);
+
+        // Full view logic
+        if (showAllAnswers) {
+          link.style.display = "none";
+          questionDiv.style.display = "block";
+          answerDiv.style.display = "block";
+        }
+
+        // Click on link -> hide link, show Q&A
+        link.addEventListener("click", (e) => {
           e.preventDefault();
-          if (isFullView) {
-            // In full view mode, toggle just this answer
-            answerDiv.style.display = (answerDiv.style.display === "block") ? "none" : "block";
-          } else {
-            // Normal toggle
-            answerDiv.style.display = (answerDiv.style.display === "none") ? "block" : "none";
-          }
+          link.style.display = "none";
+          questionDiv.style.display = "block";
+          answerDiv.style.display = "block";
+        });
+       
+
+        // Click on Q or A -> hide Q&A, show link
+        [questionDiv, answerDiv].forEach(el => {
+          el.addEventListener("click", () => {
+            if (!isFullView) {
+              link.style.display = "inline-block";
+              questionDiv.style.display = "none";
+              answerDiv.style.display = "none";
+            }
+          });
         });
 
         resultsContainer.appendChild(div);
@@ -155,12 +210,24 @@
 
     document.getElementById("fullViewBtn").addEventListener("click", () => {
       isFullView = !isFullView;
-      document.getElementById("fullViewBtn").textContent = isFullView ? "Full view" : "Full view";
       displayQuestions(isFullView);
     });
 
-    // Initial display with answers hidden
+    // Initial
     displayQuestions(false);
-  </script>
+
+  function toggleDropdown() {
+  const dropdown = document.getElementById("myDropdown");
+  dropdown.classList.toggle("show");
+
+  // Optional: Close dropdown if user clicks outside
+  window.onclick = function(event) {
+    if (!event.target.closest(".view-check")) {
+      dropdown.classList.remove("show");
+    }
+  };
+}
+
+  </script></div></div>
 </body>
 </html>
