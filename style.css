@@ -268,3 +268,26 @@ div.main{
   font-weight: bold;
   background: #eee;
 }
+    
+
+
+
+
+
+
+.result-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.result-item {
+    border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline;
+  grid-template-columns: 2fr 3fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+
