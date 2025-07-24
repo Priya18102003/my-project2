@@ -1,185 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Task</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <style>
-    .checkbox {
-      display: none;
-      position: absolute;
-      background: white;
-      border: 1px solid #ccc;
-      padding: 1px;
-      z-index: 10;
-    }
-
-    .show {
-      display: block;
-    }
-
-    .result-item {
-      border-bottom: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 5px;
-    }
-
-    .result-item .question,
-    .result-item .answer,
-    .type,
-    .owner,
-    .marks,
-    .actions {
-      margin: 10px;
-      display: inline;
-    }
-
-    .question-label {
-      margin-left: 5px;
-    }
-  </style>
-</head>
-<body>
-<header>
-  <nav>
-    <div class="image">
-      <img alt="Logo" class="image" src="educationimg.png">
-    </div>
-    <ul class="link-nav">
-      <li class="link"><a href="deskboard">Dashboard</a></li>
-      <li class="link"><a style="color: blue;" href="test"><i class="fa-regular fa-file-lines"></i> Test</a></li>
-      <li class="link"><a href="question bank"><i class="fa-solid fa-book-open"></i> Question</a></li>
-      <li class="link"><a href="classes"><i class="fa-solid fa-user-group"></i> Classes</a></li>
-      <li class="link"><a href="teachers"><i class="fa-solid fa-user"></i> Teachers</a></li>
-      <a href="#" style="position: fixed; top: 3px; right: 16px;">
-        <button style="border: none;background-color: blue; color: white;height: 30px; border-radius: 110px;padding: 5px; width: 30px;">A</button> Admin
-      </a>
-    </ul>
-  </nav></header>
-
-  <div class="overflow">
-    <div style="border-bottom: 1px solid #ccc;">
-      <input class="btn" type="button" value="ADD QUESTIONS" />
-    </div>
-
-    <h5 style="margin: 5px 7px 5px 10px;">SNAP SHOT</h5>
-    <ul>
-      <li class="plus" style="padding: 5px;">New Section</li>
-      <li class="dot" style="padding: 5px;">Section1</li>
-      <li class="dot-blue" style="padding: 5px;">Section2</li>
-      <li style="list-style: none; padding: 5px;">Uncategorized(5)</li>
-    </ul>
-
-    <h5 style="margin: 5px 7px 5px 10px;">TEXT INFORMATIONS</h5>
-    <ul>
-      <li class="dot-style" style="padding: 5px;">Mark: (10)</li>
-      <li class="dot-style" style="padding: 5px;">No.of.Q (10)</li>
-      <li class="dot-style" style="padding: 5px;">Neg: (10)</li>
-      <li class="dot-style" style="padding: 5px;">Duration: (10)</li>
-    </ul>
-  </div>
-
-  <div class="background">
-    <div class="main">
-      <ul>
-        <li class="dis"><h6 style="margin-top: 5px;margin-bottom: 20px; font-weight: 2px;font-size: large;">Test 1 Questions</h6></li>
-        <li class="dis">
-          <button id="fullViewBtn" style="border-radius: 25px; color: blue; border: 1px solid blue; background: none; width: 80px; padding: 4px; margin-left: 400px;">Full view</button>
-        </li>
-        <li class="dis">
-          <div class="flex">
-            <div class="view-check">
-              <button class="view-btn" style="border-radius: 25px; padding: 4px; width: 70px; margin-left: 10px; background: none; border: 1px solid rgb(235, 220, 220);" onclick="toggleDropdown()">View</button>
-              <div class="checkbox" id="myDropdown">
-                <div style="margin-top: 15px;">
-                  <label class="check-label"><input type="checkbox" id="showQuestion"> Questions</label><br>
-                  <label class="check-label"><input type="checkbox" id="showOwner"> Owner</label><br>
-                  <label class="check-label"><input type="checkbox" id="showType"> Type</label><br>
-                  <label class="check-label"><input type="checkbox" id="showMarks"> Marks</label><br>
-                  <label class="check-label"><input type="checkbox" id="showActions"> Actions</label><br>
-                  <button onclick="applyFilters()" style=" background-color: blue; color: white;margin: 10px; border: none;padding: 5px;width: 130px;border-radius: 4px;margin-top: 0;border-bottom: 5px;">Apply</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-
-      <input type="text" id="searchInput" placeholder="Search" style="margin-right: 290px; margin-left: 20px;padding: 3px; border-radius: 3px; border: 1px solid rgb(235, 220, 220);" onkeyup="searchFunction()" />
-      <div class="results" id="resultsContainer"></div>
-
-    </div>
-  </div>
-
-  <script>
-  const qaList = [
+const qaList = [
     { link:"What is the primar...",
         question: "What is the primary purpose of React in web development, and how does it contribute to building dynamic and interactive user interfaces?", 
-      answer: "React is primarily used for building user interfaces, allowing developers to create reusable UI components and manage the state of applications efficiently." ,
-    type:"Theory",marks:"5",},
+      answer: "React is primarily used for building user interfaces, allowing developers to create reusable UI components and manage the state of applications efficiently." },
       {  link:"What is the result...",
         question: "What is the result of 5+3?", 
-      answer: "8",
-      type:"Numerical",marks:"2", },
+      answer: "8" },
       { link:"is React a JavaScr...",
         question: "Is React a JavaScript library?", 
-      answer: "Yes, React is a JavaScript library for building user interfaces.",
-    type:"MCQ",marks:"1", },
+      answer: "Yes, React is a JavaScript library for building user interfaces." },
       {link:"Explain the conce...",
         question: "Explain the concept of JSX in React?",
-       answer: "JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML-like code in your JavaScript files, making it easier to describe what the UI should look like." ,
-     type:"Theory",marks:"3", },
+       answer: "JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML-like code in your JavaScript files, making it easier to describe what the UI should look like." },
       { link:"What is the capita...",
         question: "What is the capital of France?", 
-      answer: "Paris",
-    type:"MCQ",marks:"2", },
+      answer: "Paris" },
       { link:"Define Newton's S...",
         question: "Define Newton's Second Law of Motion.",
-      answer: "Newton's Second Law states that Force = Mass * Acceleration (F = ma).",
-    type:"Theory",marks:"4", },
+      answer: "Newton's Second Law states that Force = Mass * Acceleration (F = ma)." },
       { link:"What is the square...",
         question: "What is the square root of 144?", 
-      answer: "12" ,
-      type:"Numerical",marks:"3",},
+      answer: "12" },
       { link:"What does HTML sta...",
         question: "What does HTML stand for?", 
-      answer: "Hyper Text Markup Language",
-    type:"MCQ",marks:"2", },
+      answer: "Hyper Text Markup Language" },
       { link:"Who developed the...",
         question: "Who developed the Python programming language?",
-       answer: "Guido van Rossum" ,
-      type:"MCQ",marks:"2",},
+       answer: "Guido van Rossum" },
       { link:"What is the chemic...",
         question: "What is the chemical symbol for Gold?",
-       answer: "Au",
-     type:"MCQ",marks:"2", },
+       answer: "Au" },
       { link:"Solve:15 * 6",
         question: "Solve: 15 * 6", 
-      answer: "90",
-    type:"Numerical",marks:"3", },
+      answer: "90" },
       {link:"Explain the conce...",
          question: "Explain the concept of Object-Oriented Programming.",
-       answer: "Object-Oriented Programming (OOP) is a programming paradigm that organizes software into objects that contain both data and methods.",
-      type:"Theory",marks:"5", },
+       answer: "Object-Oriented Programming (OOP) is a programming paradigm that organizes software into objects that contain both data and methods." },
       { link:"What is the functi...",
         question: "What is the function of RAM in a computer?", 
-      answer: "RAM (Random Access Memory) is used to store and access data that is actively being used by the system, making operations faster." ,
-    type:"Theory",marks:"4",},
+      answer: "RAM (Random Access Memory) is used to store and access data that is actively being used by the system, making operations faster." },
       { link:"Which planet is kn...",
         question: "Which planet is known as the Red Planet?", 
-      answer: "Mars" ,
-    type:"MCQ",marks:"2",},
+      answer: "Mars" },
       { link:"Calculate the are...",
         question: "Calculate the area of a rectangle with length 10cm and width 5cm.", 
-      answer: "50cm<sup>2</sup>",
-    type:"Numerical",marks:"3", },
+      answer: "50cm<sup>2</sup>" },
       { link:"What is an algorit...",
         question: "What is an algorithm?", 
-      answer: "An algorithm is a step-by-step procedure or formula for solving a problem." ,
-    type:"Theory",marks:"4",}
+      answer: "An algorithm is a step-by-step procedure or formula for solving a problem." }
     ];
   
 
@@ -225,17 +92,17 @@
 
       const ownerDiv = document.createElement("div");
       ownerDiv.className = "owner";
-      ownerDiv.textContent = "Owner: " + (item.owner || "Admin");
+      ownerDiv.textContent = "Owner: " + (item.owner || "N/A");
       ownerDiv.style.display = "none";
 
       const marksDiv = document.createElement("div");
       marksDiv.className = "marks";
-      marksDiv.textContent = "Marks: " + (item.marks || " ");
+      marksDiv.textContent = "Marks: " + (item.marks || "N/A");
       marksDiv.style.display = "none";      
 
       const actionsDiv = document.createElement("div");
       actionsDiv.className = "actions";
-      actionsDiv.innerHTML = '<i class="fa fa-edit"></i> <i class="fa fa-trash"></i> ';
+      actionsDiv.innerHTML = `<i class="fa fa-edit"></i> <i class="fa fa-trash"></i>`;
       actionsDiv.style.display = "none";
 
       const label = document.createElement("label");
@@ -244,8 +111,20 @@
       label.appendChild(checkbox);
       label.appendChild(link);
 
-      div.appendChild(label);
-      div.appendChild(questionDiv);
+      /*div.appendChild(label);
+      div.appendChild(questionDiv);*/
+        // First column: Question and answer
+      const qaColumn = document.createElement("div");
+      qaColumn.appendChild(label);
+      qaColumn.appendChild(questionDiv);
+      qaColumn.appendChild(answerDiv);
+
+// Append in grid order
+      div.appendChild(qaColumn);
+      div.appendChild(typeDiv);
+      div.appendChild(ownerDiv);
+      div.appendChild(marksDiv);
+      div.appendChild(actionsDiv);
       div.appendChild(answerDiv);
       div.appendChild(typeDiv);
       div.appendChild(ownerDiv);
@@ -332,10 +211,4 @@
     document.querySelectorAll(".marks").forEach(el => el.style.display = showMarks ? "inline" : "none");
     document.querySelectorAll(".actions").forEach(el => el.style.display = showActions ? "inline" : "none");
   }
-
-  displayQuestions(false);
-</script>
-
-
-</body>
-</html>
+ displayQuestions(false);

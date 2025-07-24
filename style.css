@@ -2,7 +2,7 @@
     margin: 0 auto;
     box-sizing: border-box;
     /*font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 12px;*/  
+    font-size: 12px;*/
 
 }
 body{
@@ -105,9 +105,6 @@ div.overflow{
 div.main{
     background-color:#fff;
     padding: 15px;
-    
-    /*justify-content: flex-start;*/
-    
     margin: 5px;
     border: 1px solid rgb(235, 220, 220);;
     border-radius: 5px;
@@ -173,7 +170,7 @@ div.main{
 .checkbox label {
   display: block;
   border-bottom: 1px solid rgb(235, 220, 220);
-  padding: 5px;
+  padding: 1px;
   
 }
 .background{
@@ -216,3 +213,58 @@ div.main{
   background-color:white;
  }
 
+#moreBtn{
+  margin-left: 50px;
+}
+
+
+
+
+     /*.checkbox { display: none; position: absolute; background: white; border: 1px solid #ccc; padding: 1px; z-index: 10; }
+    .show { display: block; }
+    .result-item { border-bottom: 1px solid #ccc; padding: 10px; margin-bottom: 5px; }
+    .result-item .question, .result-item .answer, .type, .owner, .marks, .actions {
+      margin: 10px; display: inline; }
+    .question-label { margin-left: 5px; }*/
+
+
+      .checkbox {
+      display: none;
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 1px;
+      z-index: 10;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .result-item {
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+
+    .result-item .question,
+    .result-item .answer,
+    .type,
+    .owner,
+    .marks,
+    .actions {
+      margin: 10px;
+    }
+
+    .question-label {
+      margin-left: 5px;
+    }
+
+
+     #questionHeaders {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 10px;
+  font-weight: bold;
+  background: #eee;
+}
