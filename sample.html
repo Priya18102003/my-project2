@@ -323,34 +323,22 @@
         div.appendChild(marksDiv);
         div.appendChild(actionsDiv);
 
-   link.addEventListener("click", (e) => {
-  e.preventDefault();
-  link.style.display = "none";
-  questionDiv.style.display = "block";
-  answerDiv.style.display = "block";
-});
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          link.style.display = "none";
+          questionDiv.style.display = "block";
+          answerDiv.style.display = "block";
+        });
 
-[questionDiv, answerDiv].forEach(el => {
-  el.addEventListener("click", () => {
-    if (!isFullView) {
-      link.style.display = "inline-block";
-      questionDiv.style.display = "none";
-      answerDiv.style.display = "none";
-    }
-  });
-});
-
-// Initial visibility (important after filters)
-if (isFullView || showQuestion) {
-  link.style.display = "none";
-  questionDiv.style.display = "block";
-  answerDiv.style.display = "block";
-} else {
-  link.style.display = "inline-block";
-  questionDiv.style.display = "none";
-  answerDiv.style.display = "none";
-}
-
+        [questionDiv, answerDiv].forEach(el => {
+          el.addEventListener("click", () => {
+            if (!isFullView) {
+              link.style.display = "inline-block";
+              questionDiv.style.display = "none";
+              answerDiv.style.display = "none";
+            }
+          });
+        });
 
         div.appendChild(questionDiv);
         div.appendChild(answerDiv);
@@ -413,8 +401,6 @@ if (isFullView || showQuestion) {
 
 // Initial
 applyFilters();
-document.getElementById("fullViewBtn").addEventListener("click", toggleFullView);
-
 
   </script>
 </body>
