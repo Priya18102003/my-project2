@@ -66,6 +66,7 @@
   padding: 8px;
   border-bottom: 1px solid #ccc;
   gap: 10px;
+  
 }
 .result-item {
   
@@ -123,7 +124,7 @@
       <ul>
         <li class="dis"><h6 style="margin-top: 5px;margin-bottom: 20px; font-weight: 2px;font-size: large;">Test 1 Questions</h6></li>
         <li class="dis">
-          <button id="fullViewBtn" style="border-radius: 25px; color: blue; border: 1px solid blue; background: none; width: 80px; padding: 4px; margin-left: 450px;">Full view</button>
+          <button id="fullViewBtn" style="border-radius: 25px; color: blue; border: 1px solid blue; background: none; width: 80px; padding: 4px; margin-left: 400px;">Full view</button>
         </li>
         <li class="dis">
           <div class="flex">
@@ -144,7 +145,7 @@
         </li>
       </ul>
 
-      <input type="text" id="searchInput" placeholder="Search" style="margin-right: 290px; margin-left: 20px;padding: 3px; border-radius: 3px; border: 1px solid rgb(235, 220, 220);" onkeyup="searchFunction()" />
+      <input type="text" id="searchInput" placeholder="Search" style="margin-right: 1090px;padding: 3px; border-radius: 3px; border: 1px solid rgb(235, 220, 220);" onkeyup="searchFunction()" />
       <div class="results" id="resultsContainer"></div>
 
     </div>
@@ -155,67 +156,67 @@
     { link:"What is the primar...",
         question: "What is the primary purpose of React in web development, and how does it contribute to building dynamic and interactive user interfaces?", 
       answer: "React is primarily used for building user interfaces, allowing developers to create reusable UI components and manage the state of applications efficiently." ,
-    type:"Theory",marks:"5",},
+    type:"Theory",marks:"5",owner:"Admin"},
       {  link:"What is the result...",
         question: "What is the result of 5+3?", 
       answer: "8",
-      type:"Numerical",marks:"2", },
+      type:"Numerical",marks:"2", owner:"Admin"},
       { link:"is React a JavaScr...",
         question: "Is React a JavaScript library?", 
       answer: "Yes, React is a JavaScript library for building user interfaces.",
-    type:"MCQ",marks:"1", },
+    type:"MCQ",marks:"1", owner:"Admin"},
       {link:"Explain the conce...",
         question: "Explain the concept of JSX in React?",
        answer: "JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML-like code in your JavaScript files, making it easier to describe what the UI should look like." ,
-     type:"Theory",marks:"3", },
+     type:"Theory",marks:"3", owner:"Admin"},
       { link:"What is the capita...",
         question: "What is the capital of France?", 
       answer: "Paris",
-    type:"MCQ",marks:"2", },
+    type:"MCQ",marks:"2",owner:"Admin" },
       { link:"Define Newton's S...",
         question: "Define Newton's Second Law of Motion.",
       answer: "Newton's Second Law states that Force = Mass * Acceleration (F = ma).",
-    type:"Theory",marks:"4", },
+    type:"Theory",marks:"4", owner:"Admin"},
       { link:"What is the square...",
         question: "What is the square root of 144?", 
       answer: "12" ,
-      type:"Numerical",marks:"3",},
+      type:"Numerical",marks:"3",owner:"Admin"},
       { link:"What does HTML sta...",
         question: "What does HTML stand for?", 
       answer: "Hyper Text Markup Language",
-    type:"MCQ",marks:"2", },
+    type:"MCQ",marks:"2",owner:"Admin" },
       { link:"Who developed the...",
         question: "Who developed the Python programming language?",
        answer: "Guido van Rossum" ,
-      type:"MCQ",marks:"2",},
+      type:"MCQ",marks:"2",owner:"Admin"},
       { link:"What is the chemic...",
         question: "What is the chemical symbol for Gold?",
        answer: "Au",
-     type:"MCQ",marks:"2", },
+     type:"MCQ",marks:"2",owner:"Admin" },
       { link:"Solve:15 * 6",
         question: "Solve: 15 * 6", 
       answer: "90",
-    type:"Numerical",marks:"3", },
+    type:"Numerical",marks:"3",owner:"Admin" },
       {link:"Explain the conce...",
          question: "Explain the concept of Object-Oriented Programming.",
        answer: "Object-Oriented Programming (OOP) is a programming paradigm that organizes software into objects that contain both data and methods.",
-      type:"Theory",marks:"5", },
+      type:"Theory",marks:"5", owner:"Admin"},
       { link:"What is the functi...",
         question: "What is the function of RAM in a computer?", 
       answer: "RAM (Random Access Memory) is used to store and access data that is actively being used by the system, making operations faster." ,
-    type:"Theory",marks:"4",},
+    type:"Theory",marks:"4",owner:"Admin"},
       { link:"Which planet is kn...",
         question: "Which planet is known as the Red Planet?", 
       answer: "Mars" ,
-    type:"MCQ",marks:"2",},
+    type:"MCQ",marks:"2",owner:"Admin"},
       { link:"Calculate the are...",
         question: "Calculate the area of a rectangle with length 10cm and width 5cm.", 
       answer: "50cm<sup>2</sup>",
-    type:"Numerical",marks:"3", },
+    type:"Numerical",marks:"3",owner:"Admin" },
       { link:"What is an algorit...",
         question: "What is an algorithm?", 
       answer: "An algorithm is a step-by-step procedure or formula for solving a problem." ,
-    type:"Theory",marks:"4",}
+    type:"Theory",marks:"4",owner:"Admin"}
     ];
   
 
@@ -238,22 +239,25 @@
       const thCheckbox = document.createElement("div");
       const thQuestion = document.createElement("div");
       thQuestion.textContent = "Question";
-
       const thType = document.createElement("div");
       thType.textContent = "Type";
-      thType.className = "col-type";
-
       const thOwner = document.createElement("div");
       thOwner.textContent = "Owner";
-      thOwner.className = "col-owner";
-
       const thMarks = document.createElement("div");
       thMarks.textContent = "Marks";
-      thMarks.className = "col-marks";
-
       const thActions = document.createElement("div");
       thActions.textContent = "Actions";
-      thActions.className = "col-actions";
+
+     
+     
+// Append conditionally based on filters
+header.appendChild(thCheckbox); // Always include for alignment
+header.appendChild(thQuestion);
+header.appendChild(thMarks);
+header.appendChild(thType);
+header.appendChild(thOwner);
+header.appendChild(thActions);
+
 
       [thCheckbox, thQuestion, thType, thOwner, thMarks, thActions].forEach(th => header.appendChild(th));
       resultsContainer.appendChild(header);
@@ -264,10 +268,10 @@
       const showMarks = filters?.showMarks ?? false;
       const showActions = filters?.showActions ?? false;
 
-      thType.style.display = showType ? "block" : "none";
+      /*thType.style.display = showType ? "block" : "none";
       thOwner.style.display = showOwner ? "block" : "none";
       thMarks.style.display = showMarks ? "block" : "none";
-      thActions.style.display = showActions ? "block" : "none";
+      thActions.style.display = showActions ? "block" : "none";*/
 
       const displayList = showAll ? list : list.slice(0, defaultLimit);
 
@@ -373,8 +377,7 @@ if (isFullView || showQuestion) {
     function toggleDropdown() {
       document.getElementById("myDropdown").classList.toggle("show");
     }
-
-    function applyFilters() {
+    function applyFilters(){
       const filters = {
         showQuestion: document.getElementById("showQuestion").checked,
         showType: document.getElementById("showType").checked,
@@ -386,30 +389,32 @@ if (isFullView || showQuestion) {
       document.getElementById("myDropdown").classList.remove("show");
     }
 
+
+
     function toggleFullView() {
       isFullView = !isFullView;
       document.getElementById("fullViewBtn").textContent = isFullView ? "Full View" : "Full View";
       applyFilters();
     }
 
+function applyFiltersWithList(filteredList) {
+  const filters = {
+    showQuestion: document.getElementById("showQuestion").checked,
+    showType: document.getElementById("showType").checked,
+    showOwner: document.getElementById("showOwner").checked,
+    showMarks: document.getElementById("showMarks").checked,
+    showActions: document.getElementById("showActions").checked,
+  };
+  displayQuestions(isFullView, filteredList, filters);
+}
+
+
+
     function searchFunction() {
       const query = document.getElementById("searchInput").value.toLowerCase();
       const filteredList = qaList.filter(item => item.question.toLowerCase().includes(query));
       applyFiltersWithList(filteredList);
     }
-
-    function applyFiltersWithList(filteredList) {
-      const filters = {
-        showQuestion: document.getElementById("showQuestion").checked,
-        showType: document.getElementById("showType").checked,
-        showOwner: document.getElementById("showOwner").checked,
-        showMarks: document.getElementById("showMarks").checked,
-        showActions: document.getElementById("showActions").checked,
-      };
-      displayQuestions(isFullView, filteredList, filters);
-    }
-
-  document.getElementById("fullViewBtn").addEventListener("click", toggleFullView);
 
 // Initial
 applyFilters();

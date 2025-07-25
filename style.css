@@ -110,6 +110,7 @@ div.main{
     border-radius: 5px;
     margin-left: 13em;
     margin-top: 4em;
+    width: 100%;
 }
 .dis{
     list-style: none;
@@ -128,7 +129,6 @@ div.main{
 
     .results {
       width: 100%;
-      border-top: 1px solid rgb(235, 220, 220);;
       padding: 10px;
     }
 
@@ -220,12 +220,7 @@ div.main{
 
 
 
-     /*.checkbox { display: none; position: absolute; background: white; border: 1px solid #ccc; padding: 1px; z-index: 10; }
-    .show { display: block; }
-    .result-item { border-bottom: 1px solid #ccc; padding: 10px; margin-bottom: 5px; }
-    .result-item .question, .result-item .answer, .type, .owner, .marks, .actions {
-      margin: 10px; display: inline; }
-    .question-label { margin-left: 5px; }*/
+    
 
 
       .checkbox {
@@ -275,20 +270,7 @@ div.main{
 
 
 
-/*.result-item {
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 5px;
-}
-.result-item {
-    border-bottom: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  display: inline;
-  grid-template-columns: 2fr 3fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  align-items: center;
-}*/
+
 @media (max-width: 768px) {
   .header-row,
   .result-item {
@@ -310,6 +292,16 @@ div.main{
 .result-item > div {
   overflow-wrap: break-word;
 }
+
+.header-row
+ {
+  display: grid;
+  grid-template-columns: 30px 1fr repeat(4, 120px); /* Adjust if needed */
+  font-weight: bold;
+  background-color: #f2f2f2;
+  border-top: 1px solid rgb(235, 220, 220);;
+}
+
 
 
 
